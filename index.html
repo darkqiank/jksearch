@@ -929,6 +929,22 @@ $("#search-btn").click(function(){
     window.open(thisSearch + textValue, "_blank")
   }
 });
+$("#goto_button").click(function(){
+  var url_input = $('#goto_url_input').val();
+  if(url_input != ''){
+    let pos = window.location.href.indexOf('https/www.netptop.com');
+    if (pos !== -1) {
+        let url_prefix = window.location.href.substring(0, pos);
+        if (!url_input.startsWith('http')) {
+        url_input = 'https/' + url_input;
+        } else {
+        url_input = url_input.replace('https://', 'https/').replace('http://', 'http/');
+        }
+        url_input = url_prefix + url_input;
+    }
+    window.location.href = url_input;
+  }
+});
 </script>
 </div>
 </body>
